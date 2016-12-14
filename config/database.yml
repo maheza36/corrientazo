@@ -1,0 +1,19 @@
+default: &default
+  adapter: mysql2
+  encoding: utf8
+  pool: 5
+  username: bootcamp2
+  password: bootcamp2
+
+development:
+  <<: *default
+  database: corrientazo_development
+
+test:
+  <<: *default
+  database: corrientazo_test
+
+
+production:
+  <<: *default
+  database: corrientazo_production
