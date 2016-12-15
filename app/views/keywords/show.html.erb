@@ -1,0 +1,18 @@
+
+<div class="container">
+  <article class="">
+    <ul class="table-results">
+      <div class="result-row">
+        <li class="results-cell result-aling result-title"><%= @keyword.name %></li>
+      </div>
+      <% if current_user %>
+      <div class="result-row text-center">
+        <li class="results-cell"><a href="<%= notebook_path(@keyword.id) %>" data-method="delete" class="btn btn-danger"> Delete </a></li>
+      </div>
+      <% end %>
+    </ul>
+  </article>
+</div>
+<section class="row text-center cities-controls">
+
+</section>

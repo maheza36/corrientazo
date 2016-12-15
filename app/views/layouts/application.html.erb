@@ -34,6 +34,16 @@
 <p></p>
 <p></p>
 
-<%= yield %>
+  <div class="container-main">
+    <% if flash[:success] or flash[:error] or flash[:notice]%>
+      <span class="flash-message <%= flash[:success] ? 'success alert glyphicon glyphicon-ok-circle' : flash[:error] ? 'error alert glyphicon glyphicon-remove-circle' : flash[:notice] ? 'notice alert glyphicon glyphicon-info-sign' : '' %>">
+        <%= flash[:success] ? flash[:success] : flash[:error] ? flash[:error] : flash[:notice] ? flash[:notice] : '' %>
+      </span>
+    <% end %>
+  </div>
+
+    <%= yield %>
+
+
 </body>
 </html>

@@ -1,0 +1,27 @@
+<% form_name ||= "Manage" %>
+<h1 class="text-center">  <%= form_name %> Keyword </h1>
+<!--<div id="notebook-errors-messages" style="display:none;"></div>-->
+<%= form_for @keyword , method: (form_name.downcase == 'edit' ? 'put' : 'post') do |fc| %>
+
+    <% if @keyword.errors.any? %>
+      <div id="error_explanation">
+        <h2>
+          <%= pluralize(@keyword.errors.count, "error") %> prohibited
+          this article from being saved:
+        </h2>
+        <ul>
+          <% @keyword.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+  <div class="form-group">
+    <%= fc.label :name %>
+    <%= fc.text_field :name, class: "form-control" %>
+  </div>
+
+  <%= fc.submit "#{form_name} keyword", class: "btn btn-primary" %>
+
+<% end %>
