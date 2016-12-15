@@ -1,0 +1,38 @@
+<div class="container">
+  <h1 class="text-center">  New Restaurant</h1>
+  <%= form_for @restaurant do |f| %>
+  <% if @restaurant.errors.any? %>
+  <div id="error_explanation">
+    <h2>
+      <%= pluralize(@restaurant.errors.count, "error") %> prohibited
+      this article from being saved:
+    </h2>
+    <ul>
+      <% @restaurant.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+  <% end %>
+  <div class="form-group">
+    <%= f.label :name%>
+    <%= f.text_field :name, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :address%>
+    <%= f.text_field :address, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :gps%>
+    <%= f.text_field :gps, class: "form-control"%>
+  </div>
+  <div class="form-group">
+    <%= f.label :image%>
+    <%= f.text_field :image, class: "form-control" %>
+  </div>
+  <%= f.submit "Create Restaurant", class: "btn btn-primary" %>
+  <a href="<%= restaurants_path %>" class="btn btn-default"> View all </a>
+  <% end %>
+</div>
+<div id="map">
+</div>
