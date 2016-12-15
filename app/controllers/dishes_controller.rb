@@ -2,6 +2,9 @@ class DishesController < ApplicationController
 
   def new
     @dish = Dish.new
+    @restaurant = Restaurant.all
+    @keyword = Keyword.all
+    @dish.kewworddishes.build
   end
 
   def index
@@ -11,10 +14,20 @@ class DishesController < ApplicationController
   def create
     @dish = Dish.new(dish_params)
     if @dish.save
-      flash[:success] = "created. Ok"
-      redirect_to dishes_path
+      @dish.kewworddishes.build(keyword_id: params[:dish][:keyword_id])
+      if @dish.save
+        flash[:success] = "created. Ok"
+        redirect_to dishes_path
+      else
+        @restaurant = Restaurant.all
+        @keyword = Keyword.all
+        flash[:error] = "Houston we are in troubles, try it again."
+        render 'new'
+      end
     else
-      flash[:error] = "Houston we are in troubles, try it again."
+      @restaurant = Restaurant.all
+      @dish.kewworddishes.nil? ? @dish.kewworddishes.build : nil
+      flash[:error] = "Error...."
       render 'new'
     end
   end
