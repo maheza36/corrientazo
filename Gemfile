@@ -1,5 +1,8 @@
 source 'https://rubygems.org'
 
+# gem for icon image
+gem 'carrierwave', '>= 1.0.0.rc', '< 2.0'
+
 # Devise for sign stuff...
 gem 'devise'
 

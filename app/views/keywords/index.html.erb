@@ -1,0 +1,23 @@
+<div class="container">
+  <h1 class="text-center"> Keywords </h1>
+  <% if current_user %>
+    <section class="row text-center cities-controls" id="notebook-actions">
+        <a href="<%= new_keyword_path %>" class="btn btn-default" data-remote="true"> New Keywords </a>
+    </section>
+  <% end %>
+  <% @keyword.each do |f| %>
+    <article class="">
+      <ul class="table-results">
+        <div class="results-row">
+          <li class="results-cell results-aling result-title"><%= f.name %></li>
+        </div>
+
+            <li class="results-cell"><a href="<%= keyword_path(f.id) %>" data-method="delete" class="btn btn-danger"> Delete </a></li>
+            <li class="results-cell"><a href="<%= edit_keyword_path(f.id) %>" class="btn btn-primary"> Edit </a></li>
+            <li class="results-cell"><a href="<%= keyword_path(f.id) %>" class="btn btn-info" > Show </a></li>
+        </div>
+
+      </ul>
+    </article>
+  <% end if @keyword.any? %>
+</div>

@@ -10,4 +10,7 @@ Rails.application.routes.draw do
   root to: 'static_pages#index'
 
   resources :restaurants
+  resources :keywords
+  resources :dishes
+
 end
