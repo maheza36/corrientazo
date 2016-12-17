@@ -7,6 +7,7 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBElfba4JgUAu78FJ9Tyxhq-sXwvz9H8mo&callback=initMap"  defer></script>
   <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  <%= yield :javascript_includes%>
 </head>
 
 <body>
