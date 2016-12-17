@@ -1,0 +1,11 @@
+<% r_string = "[" %>
+<% @restaurants.each do |r| %>
+<% r_string += "[\"#{r.name}\",#{r.gps}]" %>
+  <% if !r.equal?(@restaurants.last)%>
+    <% r_string += "," %>
+  <% end %>
+<% end %>
+<% r_string += "]" %>
+<div id="map" data-url="show" data-gps="<%= r_string %>">
+
+</div>

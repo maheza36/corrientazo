@@ -4,11 +4,10 @@
       <li class="col-md-2"><strong><%= @restaurant.name %></strong></li>
       <li class="col-md-2"><strong><%= @restaurant.address %></strong></li>
       <li class="col-md-2"><strong><%= @restaurant.image %></strong></li>
-      <li class="col-md-2"><strong><%= @restaurant.gps %></strong></li>
+      <li class="col-md-2" id="gps_show"><strong><%= @restaurant.gps %></strong></li>
       <li class="col-md-2"><a href="<%= restaurant_path(@restaurant.id) %>" data-method="delete" class="btn btn-danger"> Delete </a></li>
-
     </ul>
-    <div id="map">
-    </div>
   </article>
+</div>
+<div id="map" data-url="show">
 </div>
