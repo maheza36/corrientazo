@@ -20,7 +20,7 @@
   <div class="form-group">
     <%= fc.label :restaurant_id %>
     <%= fc.select(:restaurant_id) do  %>
-        <% @restaurant.each do |c| -%>
+        <% @restaurant.each do |c| %>
           <%= content_tag(:option, c.name, value: c.id) %>
         <% end %>
       <% end %>
@@ -47,8 +47,8 @@
   <ul>
     <% @keyword.each do |keyword| %>
         <li>
-          <%= check_box_tag 'kewyword_id[]', keyword.id -%>
-          <%= h keyword.name -%>
+          <%= check_box_tag "keywords[]", keyword.id, false %>
+          <%= h keyword.name %>
         </li>
     <% end %>
   </ul>
