@@ -12,9 +12,21 @@ class DishesController < ApplicationController
   end
 
   def create
+    @checked = params[:keywords]
+    puts @checked
+    puts "TEST"
     @dish = Dish.new(dish_params)
+    @checked.each do |ch|
+      puts "HERE"
+      puts ch
+      @keyword = KewwordDish.find_by keyword_id: ch
+      puts @keyword
+      if @keyword
+        @dish.kewworddishes << @keyword
+      end
+    end
     if @dish.save
-      @dish.kewworddishes.build(keyword_id: params[:dish][:keyword_id])
+      #@dish.kewworddishes.build(keyword_id: params[:dish][keyword_id:[]])
       if @dish.save
         flash[:success] = "created. Ok"
         redirect_to dishes_path
