@@ -1,3 +1,6 @@
+<% content_for :javascript_includes do %>
+  <%= javascript_include_tag "restaurants.js" %>
+<% end %>
 <% r_string = "[" %>
 <% @restaurants.each do |r| %>
 <% r_string += "[\"#{r.name}\",#{r.gps}]" %>

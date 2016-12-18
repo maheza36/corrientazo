@@ -2,8 +2,8 @@ default: &default
   adapter: mysql2
   encoding: utf8
   pool: 5
-  username: bootcamp2
-  password: bootcamp2
+  username: root
+  password: '123456'
 
 development:
   <<: *default

@@ -1,3 +1,6 @@
+<% content_for :javascript_includes do %>
+  <%= javascript_include_tag "restaurants2.js" %>
+<% end %>
 <div class="container">
   <h1 class="text-center">  New Restaurant</h1>
   <%= form_for @restaurant do |f| %>
@@ -27,8 +30,8 @@
     <%= f.text_field :gps, class: "form-control"%>
   </div>
   <div class="form-group">
-    <%= f.label :image%>
-    <%= f.text_field :image, class: "form-control" %>
+    <%= f.label :image %>
+    <%= f.file_field :image, class: "form-control" %>
   </div>
   <%= f.submit "Create Restaurant", class: "btn btn-primary" %>
   <a href="<%= restaurants_path %>" class="btn btn-default"> View all </a>
