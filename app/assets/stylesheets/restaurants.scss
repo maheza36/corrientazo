@@ -1,16 +1,40 @@
 // Place all the styles related to the restaurants controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+html, body {
+  height: 50%;
+  margin: 0;
+  padding: 0;
+}
+#map {
+  height: 100%;
+  min-height: 500px;
+}
+#map[data-url="show"]{
+}
+#container_restaurant {
+  width: 350px;
+  float: left;
+  margin: 0px 12px 0px -92px;
+}
+.text-center{
+  margin-bottom: 43px;
+}
+#restaurant_image{
+  height: 50px;
+}
+#title_luch {
+    margin-bottom: -7px;
+}
+.list-group-item {
+  width: 190px;
+  margin-top: 3px;
 
-  html, body {
-    height: 50%;
-    margin: 0;
-    padding: 0;
-  }
-  #map {
-    height: 100%;
-    min-height: 500px;
-  }
-  #map[data-url="show"]{
-    
-  }
+}
+.list_restaurants {
+    float: left;
+    margin: 0px 22px 0px 11px;
+}
+content_map {
+  margin: 0px 18px 18px 0px;
+}

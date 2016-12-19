@@ -1,8 +1,8 @@
 <% content_for :javascript_includes do %>
   <%= javascript_include_tag "restaurants2.js" %>
 <% end %>
-<div class="container">
-  <h1 class="text-center">  New Restaurant</h1>
+<div class="container" id="container_restaurant">
+  <h1 class="text-center">  Create Restaurant</h1>
   <%= form_for @restaurant do |f| %>
   <% if @restaurant.errors.any? %>
   <div id="error_explanation">

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Corrientazo</title>
+  <title>LunchTime!!</title>
   <%= csrf_meta_tags %>
 
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -10,41 +10,39 @@
   <%= yield :javascript_includes%>
 </head>
 
-<body>
 
 <header class="container-head">
-      <h1 class="headline">ELECTRIC LUNCH</h1>
-      <nav class="menu-nav">
-        <a class="navbar-brand logo-link" href="<%= root_path %>">Corrientazo </a>
-        <% if current_user %>
-        <span class="navbar-brand logo-link"> User: <%= current_user.email %> </span>
-        <% end %>
-        <ul class="nav navbar-nav navbar-right">
-          <% if !current_user %>
-          <li><a href="<%= new_client_session_path %>" class="menu-option">Log in</a></li>
-          <li><a href="<%= new_client_registration_path %>" class="menu-option">Sign up</a></li>
-          <% else %>
-          <li ><a href="<%= destroy_client_session_path %>" class="menu-option" data-method="delete">Log out</a></li>
-          <% end %>
-        </ul>
-      </div>
-    </nav>
-  </header>
-
-<p></p>
-<p></p>
-<p></p>
-
-  <div class="container-main">
-    <% if flash[:success] or flash[:error] or flash[:notice]%>
-      <span class="flash-message <%= flash[:success] ? 'success alert glyphicon glyphicon-ok-circle' : flash[:error] ? 'error alert glyphicon glyphicon-remove-circle' : flash[:notice] ? 'notice alert glyphicon glyphicon-info-sign' : '' %>">
-        <%= flash[:success] ? flash[:success] : flash[:error] ? flash[:error] : flash[:notice] ? flash[:notice] : '' %>
-      </span>
-    <% end %>
+  <div class="">
+    <img src="https://s30.postimg.org/4tljbcmvl/logo2.png" alt="Logo_pagina">
   </div>
+  <nav class="menu-nav">
+    <a class="navbar-brand logo-link" href="<%= root_path %>"><span class="glyphicon glyphicon-home"></span> Home</a>
+    <% if current_user %>
+    <span class="navbar-brand logo-link"> User: <%= current_user.email %> </span>
+    <% end %>
+    <ul class="nav navbar-nav navbar-right">
+      <% if !current_user %>
+      <li><a href="<%= new_client_session_path %>" class="menu-option"><span class="glyphicon glyphicon-user"></span> Log in</a></li>
+      <li><a href="<%= new_client_registration_path %>" class="menu-option"><span class="glyphicon glyphicon-user"></span> Sign up</a></li>
+      <% else %>
+      <li ><a href="<%= destroy_client_session_path %>" class="menu-option" data-method="delete">Log out</a></li>
+      <% end %>
+    </ul>
+  </div>
+</nav>
 
-    <%= yield %>
+</header>
 
+
+<div class="container-main">
+  <% if flash[:success] or flash[:error] or flash[:notice]%>
+  <span class="flash-message <%= flash[:success] ? 'success alert glyphicon glyphicon-ok-circle' : flash[:error] ? 'error alert glyphicon glyphicon-remove-circle' : flash[:notice] ? 'notice alert glyphicon glyphicon-info-sign' : '' %>">
+    <%= flash[:success] ? flash[:success] : flash[:error] ? flash[:error] : flash[:notice] ? flash[:notice] : '' %>
+  </span>
+  <% end %>
+</div>
+
+<%= yield %>
 
 </body>
 </html>

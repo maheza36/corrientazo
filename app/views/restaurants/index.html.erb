@@ -1,14 +1,28 @@
 <% content_for :javascript_includes do %>
-  <%= javascript_include_tag "restaurants.js" %>
+<%= javascript_include_tag "restaurants.js" %>
 <% end %>
-<% r_string = "[" %>
-<% @restaurants.each do |r| %>
-<% r_string += "[\"#{r.name}\",#{r.gps}]" %>
+<h1 class="text-center" id="title_luch">Ubication!! </h1>
+<h4 class="text-center">Your favorite place </h4>
+<div class="list_restaurants">
+  <% @restaurants.each do |f| %>
+  <article class="">
+    <ul class="table-results">
+      <div class="results-row">
+        <li class="list-group-item list-group-item-action list-group-item-danger"><span class="glyphicon glyphicon-cutlery"></span> <%= f.name %></li>
+      </ul>
+    </article>
+    <% end if @restaurants.any? %>
+  </div>
+  <% r_string = "[" %>
+  <% @restaurants.each do |r| %>
+  <% r_string += "[\"#{r.name}\",#{r.gps}]" %>
   <% if !r.equal?(@restaurants.last)%>
-    <% r_string += "," %>
+  <% r_string += "," %>
   <% end %>
-<% end %>
-<% r_string += "]" %>
-<div id="map" data-url="show" data-gps="<%= r_string %>">
+  <% end %>
+  <% r_string += "]" %>
 
-</div>
+  <section id="content_map">
+    <div id="map" data-url="show" data-gps="<%= r_string %>">
+    </div>
+  </section>
