@@ -25,6 +25,8 @@
       <li><a href="<%= new_client_session_path %>" class="menu-option"><span class="glyphicon glyphicon-user"></span> Log in</a></li>
       <li><a href="<%= new_client_registration_path %>" class="menu-option"><span class="glyphicon glyphicon-user"></span> Sign up</a></li>
       <% else %>
+      <li><a href="<%= new_restaurant_path %>" class="menu-option"><span class="glyphicon glyphicon-user"></span> Restaurant </a></li>
+      <li><a href="<%= new_dish_path %>" class="menu-option"><span class="glyphicon glyphicon-user"></span> Dishes </a></li>
       <li ><a href="<%= destroy_client_session_path %>" class="menu-option" data-method="delete">Log out</a></li>
       <% end %>
     </ul>

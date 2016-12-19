@@ -1,25 +1,29 @@
 <div class="container">
   <h1 class="text-center"> Dish </h1>
-  <% if current_user %>
+
     <section class="row text-center cities-controls" id="notebook-actions">
-        <a href="<%= new_keyword_path %>" class="btn btn-default" data-remote="true"> New Dish </a>
+        <a href="<%= new_dish_path %>" class="btn btn-default" > New Dish </a>
     </section>
-  <% end %>
-  <% @dish.each do |f| %>
-    <article class="">
-      <ul class="table-results">
-        <div class="results-row">
-          <li class="results-cell results-aling result-title"><%= f.restaurant.name %></li>
-          <li class="results-cell results-aling result-title"><%= f.name %></li>
-          <img src="<%= f.avatar %>" width="120" alt="product">
-        </div>
 
-            <li class="results-cell"><a href="<%= dish_path(f.id) %>" data-method="delete" class="btn btn-danger"> Delete </a></li>
-            <li class="results-cell"><a href="<%= edit_dish_path(f.id) %>" class="btn btn-primary"> Edit </a></li>
-            <li class="results-cell"><a href="<%= dish_path(f.id) %>" class="btn btn-info" > Show </a></li>
-        </div>
+    <div class="table-responsive">
+      <table class="table table-bordered table-hover">
+        <tr>
+          <th>Restaurant Name</th>
+          <th>Dish Name</th>
+          <th>Avatar</th>
+          <th>Options</th>
+        </tr>
+        <% @dish.each do |f| %>
+        <tr>
+          <td class=""><%= f.restaurant.name %></td>
+          <td class=""><%= f.name %></td>
+          <td><img src="<%= f.avatar %>" width="120" alt="product"></td>
+          <td class=""><a href="<%= dish_path(f.id) %>" data-method="delete" class="btn btn-danger"> Delete </a>
+          <a href="<%= edit_dish_path(f.id) %>" class="btn btn-primary"> Edit </a>
+          <a href="<%= dish_path(f.id) %>" class="btn btn-info" > Show </a></td>
+        </tr>
+        <% end if @dish.any? %>
+    </table>
+  </div>
 
-      </ul>
-    </article>
-  <% end if @dish.any? %>
 </div>
