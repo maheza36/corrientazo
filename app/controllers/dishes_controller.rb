@@ -1,5 +1,5 @@
 class DishesController < ApplicationController
-
+before_action :authenticate_client!
   def new
     @dish = Dish.new
     @restaurant = Restaurant.all

@@ -1,5 +1,5 @@
 class KeywordsController < ApplicationController
-
+before_action :authenticate_client!
   def new
     @keyword = Keyword.new
   end

@@ -25,8 +25,10 @@
       <li><a href="<%= new_client_session_path %>" class="menu-option"><span class="glyphicon glyphicon-user"></span> Log in</a></li>
       <li><a href="<%= new_client_registration_path %>" class="menu-option"><span class="glyphicon glyphicon-user"></span> Sign up</a></li>
       <% else %>
+      <li><a href="<%= restaurants_path %>" class="menu-option"><span class="glyphicon glyphicon-chevron-right"></span> Search </a></li>
       <li><a href="<%= new_restaurant_path %>" class="menu-option"><span class="glyphicon glyphicon-chevron-right"></span> Restaurant </a></li>
       <li><a href="<%= new_dish_path %>" class="menu-option"><span class="glyphicon glyphicon-chevron-right"></span> Dishes </a></li>
+      <li><a href="<%= new_keyword_path %>" class="menu-option"><span class="glyphicon glyphicon-chevron-right"></span> Keywords </a></li>
       <li><a href="<%= dishes_path %>" class="menu-option"><span class="glyphicon glyphicon-chevron-right"></span> Index Dishes </a></li>
       <li ><a href="<%= destroy_client_session_path %>" class="menu-option" data-method="delete">Log out</a></li>
       <% end %>
