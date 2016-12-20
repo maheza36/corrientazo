@@ -46,6 +46,8 @@ before_action :authenticate_client!
 
   def edit
     find_dish
+    @restaurant = Restaurant.all
+    @keyword = Keyword.all
     if @dish.nil?
       flash[:error] = "Houston we are in troubles, please dont hack us."
       redirect_to dishes_path

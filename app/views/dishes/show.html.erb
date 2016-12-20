@@ -1,0 +1,9 @@
+<div class="container">
+  <article class="row city">
+    <ul>
+      <li class="col-md-2 list-unstyled"><strong><%= @dish.name %></strong></li>
+      <li class="col-md-2 list-unstyled"><strong><img src="<%= @dish.avatar %>" class="img_dish" alt="product"></strong></li>
+      <li class="col-md-2 list-unstyled"><a href="<%= dish_path(@dish.id) %>" data-method="delete" class="btn btn-danger"> Delete </a></li>
+    </ul>
+  </article>
+</div>
