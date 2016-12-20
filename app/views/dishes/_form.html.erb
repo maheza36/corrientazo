@@ -1,6 +1,7 @@
 <% form_name ||= "Manage" %>
 <h1 class="text-center">  <%= form_name %> Dish </h1>
 <!--<div id="notebook-errors-messages" style="display:none;"></div>-->
+<div id="form_dish">
 <%= form_for @dish , method: (form_name.downcase == 'edit' ? 'put' : 'post') do |fc| %>
 
     <% if @dish.errors.any? %>
@@ -17,8 +18,9 @@
       </div>
     <% end %>
 
-  <div class="form-group">
+  <div class="form-group" style="width: 400px">
     <%= fc.label :restaurant_id %>
+    <br>
     <%= fc.select(:restaurant_id) do  %>
         <% @restaurant.each do |c| %>
           <%= content_tag(:option, c.name, value: c.id) %>
@@ -26,27 +28,26 @@
       <% end %>
   </div>
 
-  <div class="form-group">
+  <div class="form-group" style="width: 400px">
     <%= fc.label :name %>
     <%= fc.text_field :name, class: "form-control" %>
   </div>
 
-  <div class="form-group">
+  <div class="form-group" style="width: 400px">
     <%= fc.label :avatar %>
     <%= fc.file_field :avatar, class: "form-control" %>
   </div>
+  <label>Key words</label>
 
-  <div class="form-group">
-    <select name="dish[keyword_id]" class="selectpicker">
+  <div class="form-group" style="width: 400px" >
+    <select name="dish[keyword_id]" id="select_dish">
       <% @keyword.each do |m| %>
         <option value="<%= m.id %>"> <%= m.name %></option>
       <% end %>
     </select>
-  </div>
-
-  <ul>
+  <ul class="list-group checked-list-box">
     <% @keyword.each do |keyword| %>
-        <li>
+        <li class="list-group-item" data-color="success">
           <%= check_box_tag "keywords[]", keyword.id, false %>
           <%= h keyword.name %>
         </li>
@@ -57,3 +58,4 @@
   <%= fc.submit "#{form_name} dish", class: "btn btn-primary" %>
 
 <% end %>
+</div>

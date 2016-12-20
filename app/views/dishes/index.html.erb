@@ -5,25 +5,24 @@
         <a href="<%= new_dish_path %>" class="btn btn-default" > New Dish </a>
     </section>
 
-    <div class="table-responsive">
-      <table class="table table-bordered table-hover">
-        <tr>
-          <th>Restaurant Name</th>
-          <th>Dish Name</th>
-          <th>Avatar</th>
-          <th>Options</th>
-        </tr>
-        <% @dish.each do |f| %>
-        <tr>
-          <td class=""><%= f.restaurant.name %></td>
-          <td class=""><%= f.name %></td>
-          <td><img src="<%= f.avatar %>" width="120" alt="product"></td>
-          <td class=""><a href="<%= dish_path(f.id) %>" data-method="delete" class="btn btn-danger"> Delete </a>
-          <a href="<%= edit_dish_path(f.id) %>" class="btn btn-primary"> Edit </a>
-          <a href="<%= dish_path(f.id) %>" class="btn btn-info" > Show </a></td>
-        </tr>
-        <% end if @dish.any? %>
-    </table>
-  </div>
+    <% @dish.each do |f| %>
+    <div class="col-md-4">
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h3 class="panel-title"><%= f.restaurant.name %>
+          <span class="pull-right clickable"><i class="glyphicon glyphicon-chevron-up"></i></span></h3>
+        </div>
+        <div class="panel-body" style="height: 344px">
+          <div class="text-center"><h4><li class="list-unstyled"><%= f.name %></li></h4></div>
+          <li class="list-unstyled"><img src="<%= f.avatar %>" class="img_dish" alt="product"></li>
+          <div class="menu_dish text-center">
+            <a href="<%= dish_path(f.id) %>" data-method="delete" class="btn btn-danger"> Delete </a>
+            <a href="<%= edit_dish_path(f.id) %>" class="btn btn-primary"> Edit </a>
+            <a href="<%= dish_path(f.id) %>" class="btn btn-info" > Show </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <% end if @dish.any? %>
 
-</div>
+  </div>
